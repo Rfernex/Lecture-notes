@@ -1,0 +1,12 @@
+
+% HOW TO USE : 
+% Put your pdf file in your overleaf repository
+% Change the name in includepdf with the name of your file
+% compile to preview and download
+
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\usepackage[top=1in, bottom=1in, left=0.5in, right=0.5in]{geometry} % EDIT MARGINS HERE
+\begin{document}
+\includepdf[nup=3x3, pages=-]{to_be_compiled/Econometrics_cheat_sheet_abridged_v4.pdf} % REPLACE WITH NAME OF YOUR PDF FILE
+\end{document}

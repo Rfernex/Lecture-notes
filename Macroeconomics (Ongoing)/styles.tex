@@ -1,0 +1,134 @@
+% visuals
+
+% expected result blue boxes
+\usepackage[most]{tcolorbox}
+\newtcolorbox{expectedresultsbox}{colback=blue!2!white, colframe=blue!75!black, arc=4mm, boxrule=0.5mm}
+
+% intro black box
+\newtcolorbox{solutionoutlinebox}[1][]{%
+  enhanced,
+  colback=white,
+  colframe=black,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={\large Solution Outline},
+  center title,
+  #1
+}
+
+% equation system green
+\newtcolorbox{systembox}[1][]{%
+  enhanced,
+  colback=green!2!white,
+  colframe=green!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={ Equilibrium Equations System},
+  center title,
+  #1
+}
+
+% equation system NSS blue
+\newtcolorbox{steadystatebox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Non-Stochastic Steady State System},
+  center title,
+  #1
+}
+
+% equation system LL blue
+\newtcolorbox{LLbox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Log-Linearized System},
+  center title,
+  #1
+}
+
+% equation taylor blue
+\newtcolorbox{taylorbox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Taylor Expansion Theorem},
+  center title,
+  #1
+}
+
+% equation Taylor details (price)
+\newtcolorbox{TDbox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Applying Taylor : Detailed method},
+  center title,
+  #1
+}
+
+% Understanding E_t
+\newtcolorbox{Expectationbox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Law of iterated expectation applied to $E_t$},
+  center title,
+  #1
+}
+
+% Understanding E_t
+\newtcolorbox{alternativebox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={The planner problem in conditional form},
+  center title,
+  #1
+}
+
+\newtcolorbox{tobinsbox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={About Tobin's q},
+  center title,
+  #1
+}
+
+\newtcolorbox{responsebox}[1][]{%
+  enhanced,
+  colback=blue!2!white,
+  colframe=blue!75!black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={Detailed response process},
+  center title,
+  #1
+}
+
+\newtcolorbox{shortbox}[1][]{%
+  enhanced,
+  colback=white,
+  colframe=black,,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={In short},
+  center title,
+  #1
+}
