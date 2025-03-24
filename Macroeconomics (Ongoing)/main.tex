@@ -676,28 +676,46 @@
 \textbf{D) Phillips curve (output gap version)}
 \begin{enumerate}
     \item substitute the log-lin labour demand function into the log-lin labour market clearing condition to get a new expression of n (you also need to use the log lin price index to get rid of $p_t$)
+    \begin{expectedresultsbox}
     \begin{equation}
         n_t=c_t-a_t
     \end{equation}
+    \end{expectedresultsbox}
     \item combine (2) with the log lin labour supply equation to get : 
+    \begin{expectedresultsbox}
     \begin{equation}
         (\psi + \gamma)c_t=w_t-p_t+\psi a_t
     \end{equation}
+    \end{expectedresultsbox}
     \item start from (3) and rewrite the equality for $c_t^f$ ($w_t$ and $p_t$ take an f too). Then simplify the right hand side to express it as a function of $a_t$ (remember that $p_t^f = w_t^f-a_t$ from the log linearized system)
+    \begin{expectedresultsbox}
     \begin{equation}
         (\psi+\gamma)c_t^f = (\psi + 1)a_t \Longleftrightarrow c_t^f = \frac{\psi+1}{\psi + \gamma}a_t
     \end{equation}
+    \end{expectedresultsbox}
     \item we can now safely set $\xi$ such that : $(w_t-a_t-p_t) = \xi (c_t-c_t^f)$
     \item we substitute this in our previous expression for the phillips curve (see C) and get this new equation : 
+    \begin{expectedresultsbox}
     \begin{equation}
         \pi_t = \kappa(c_t-c_t^f)+\beta E_t[\pi_{t+1}]
+    \end{equation}   
+    \end{expectedresultsbox}
+    \item So with market clearing ($c_t = y_t$) we get : 
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \pi_t = \kappa(y_t-y_t^f)+\beta E_t[\pi_{t+1}]
     \end{equation}
+    \end{expectedresultsbox}
+
+
 \end{enumerate}
 
 
 
-\section{Monetary and Fiscal policy}
+\section{Monetary policy}
+
 \subsection{Optimal monetary policy}
+
 \subsubsection{Efficient flex-price allocation}
 \begin{itemize}
     \item Goal for the central bank : replicate the equilibrium allocation under flexible prices (assumed to be efficient here, $c_t^f=c_t^e$)
@@ -718,15 +736,42 @@
         \item $\phi_{\pi}+\frac{(1-\beta)\phi_c}{\kappa} > 1$
     \end{enumerate}
 \end{itemize}
+
 \subsubsection{Inefficient flex-price allocation : The Quadratic loss function}
 \begin{itemize}
-    \item expresses the tradeoff between minimizing inflation and minimizing the output gap
-    \item miminization problem : with $x_t = c_t-c_t^e$ (the output gap)
+    \item expresses the tradeoff between minimizing inflation (cross-sectional efficiency) and minimizing the output gap (aggregate efficiency)\footnote{1) cross sectional efficiency deals with inefficiency across firms for a given period (inflation combined with sticky prices lead to varying consumption across goods), 2) aggregate efficiency stands for the taste that households have for a smoooth consumption path (concave utility function)}
+\end{itemize}
+\textbf{The loss minimization problem :}
+\begin{itemize}
+    \item \underline{objective function:} with $x_t = c_t-c_t^e$ (the output gap)
+        \subitem  - We denote $\nu$ the weight put on output stabilization relative to inflation stabilization. Based on Woodford, $\nu = \frac{\kappa}{\theta}$
     \begin{equation}
     \min_{x_t,\pi_t}E_0[\sum_{t=0}^{\infty}\beta^t(\pi_t^2+\nu x_t^2)]
     \end{equation}
-    \item we denote $\nu$ the weight put on output stabilization relative to inflation stabilization.
+    \item \underline{Constraint function:} NKPC with tradeoffs (obtained from the regular NKPC by introducing $c_t^e$)
+    \begin{equation}
+        \pi_t = \kappa x_t + \beta E_t[\pi_{t+1}]+u_t 
+    \end{equation}
+    \item \underline{variables :}
+    \begin{enumerate}
+        \item endogenous : $x_t=c_t-c_t^e$ (output gap) 
+        \item exogenous : $u_t = \kappa (c_t^e-c_t^f)$ (cost push shock) and $\pi_{t+1}$ (inflation at the next period $\Longrightarrow$ is impacted by previous decisions but is not a choice variable !)
+    \end{enumerate}
 \end{itemize}
+
+\subsubsection{Two types of monetary policy : discretionary vs commitment}
+\begin{enumerate}
+    \item discretionary policy : central bank takes the optimal policy at each period without being constrained by former commitments \footnote{see more details in extensions}
+    \begin{itemize}
+        \item cannot commit so higher equilibrium inflation
+        \item depends only on current state
+    \end{itemize}
+    \item with commitment : central bank can commit to state-contingent policy plan with the risk that actions taken will be suboptimal. 
+    \begin{itemize}
+        \item can influence expectations directly which may lead to better policy trade offs due to anticipation (higher welfare)
+        \item depends on state history
+    \end{itemize}
+\end{enumerate}
 
 \subsection{Methods and results}
 \subsubsection{deriving the natural rate of interest}
@@ -745,6 +790,303 @@
         \textcolor{blue}{\textbf{Expected result :}} $\pi_t=\kappa\sum_{s=t}^{\infty}\beta^{s-t}E_t[c_s-c_s^f]$
     \end{expectedresultsbox}
 \end{enumerate}
+
+
+\section{Fiscal Policy}
+\subsection{Definitions and concepts}
+\begin{itemize}
+    \item Fiscal multiplier : effect of an increase in gvt expenditures on output (transitory/permanent = short-run/long-run multiplier)
+    \item Fiscal policy shock : unexpected change in government spending or taxation that is not anticipated by economic agents. It alters the aggregate demand by affecting disposable income or direct government expenditures, thereby impacting overall economic activity
+    \item Monetary policy shock : unexpected adjustment in the central bank's policy stance—for example, an unanticipated change in the interest rate or another policy instrument. It affects borrowing costs, credit conditions, and economic activity beyond what was forecasted by the markets.
+    \item The ad-hoc consumption function\footnote{WARNING : this equation is not derived, it is an assumption used to explain why the traditional Keynesian tends to  be higher than 1} : with $c_0$ (autonomous consumption\footnote{Consumption occuring even with 0 income}), and $c_1$(marginal propensity to consume)
+    \begin{equation}
+        C_t = c_0 + c_1Y_t
+    \end{equation}
+    \begin{itemize}
+        \item We have a positive feedback loop : $\nearrow g_t \Longrightarrow \nearrow Y_t \Longrightarrow C_t \Longrightarrow \nearrow\nearrow Y_{t}$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Methods and results}
+\begin{itemize}
+     \item Goal : understand effect of a given policy shock under certain conditions on prices (different from deriving optimal policy as we did with monetary policy!)
+\end{itemize}
+
+\subsubsection{Derivation of the Fiscal multiplier : 
+Flexible price case}
+\begin{itemize}
+    \item \underline{Goods Market clearing :} $Y_t \neq C_t$ as the government purchases a share $\nu_t$ of the production. Gvt expenditures are financed with debt (bond issuance) or taxes (impacts household BC + gvt BC). 
+    \begin{equation}
+    \begin{aligned}
+        \textbf{standard : }Y_t &=C_t + \nu_tY_t\\
+        \textbf{LL : }y_t &= c_t + g_t \text{ with $g_t = log(\frac{1-\nu}{1-\nu_t})$}
+    \end{aligned}
+    \end{equation}
+    \item \underline{Production function : }UNCHANGED
+    \begin{equation}
+    \begin{aligned}
+        \textbf{standard : } Y_t&=A_tN_t\\
+        LL : y_t &= a_t + n_t
+    \end{aligned}
+    \end{equation}
+    \item \underline{Household maximization (work/leisure tradeoff: }UNCHANGED
+    \begin{equation}
+        \textbf{LL : }w_t - p_t = \psi n_t + \gamma c_t
+    \end{equation}
+    \item \underline{Optimal flexible price :} to obtain the rewritten version 1) use [54] to introduce $n_t, c_t$, 2) use [52,53] to introduce $y_t, g_t$ 3) reorganize terms and note $\Gamma \equiv \frac{\gamma}{\gamma+\psi}$
+    \begin{equation}
+    \begin{aligned}
+        \textbf{LL : }p_t^f &= w_t^f - a_t \\
+        \textbf{rewritten LL : } y_t^f &= \frac{1+\psi}{\gamma+\psi}a_t + \Gamma g_t
+    \end{aligned}
+    \end{equation}
+    \begin{RecapBox}
+        Log-Linearize system :
+        \begin{enumerate}
+            \item GM clearing : $y_t = c_t + g_t$
+            \item Production : $y_t=a_t+n_t$
+            \item Work/leisure tradeoff : $w_t - p_t = \psi n_t + \gamma c_t$
+            \item Optimal flexible price : $p_t^f = w_t^f - a_t$
+            \item Optimal production : $y_t^f = \frac{1+\psi}{\gamma+\psi}a_t + \Gamma g_t$
+        \end{enumerate}
+    \end{RecapBox}
+    \item Fiscal multiplier ($\Gamma$) : links $y_t^f$ to $g_t$
+    \begin{enumerate}
+        \item $0<\Gamma <1$ since $\psi >0$
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{Derivation of the Fiscal multiplier : Rigid price case}
+\begin{itemize}
+    \item Set-up : 
+    \begin{RecapBox}
+        Log-linearized system : 
+        \begin{enumerate}
+            \item GMC : $c_t = y_t -g_t$
+            \item EE : $c_t = \frac{-1}{\gamma}(r_t-E_t[\pi_{t+1}]) + E_t[c_{t+1}]$
+            \item output EE : $y_t-y_t^f = \frac{1}{\gamma}(r_t-r_t^n-E_t[\pi_{t+1}]) + E_t[y_{t+1}-y_{t+1}^f]$
+            \item Real IR (flexible) : $r_t^f = \gamma(E_t[c_{t+1}^f]-c_t^f)$\footnote{reminder : $r_t^f = r_t^n$ under flexible prices} 
+            \item NKPC : $\pi_t = \kappa(y_t-y_t^f) + \beta E_t[y_{t+1}-y_{t+1}^f]$
+            \item Monetary policy rule : $r_t = \phi_\pi\pi_t + \phi_y(y_t-y_t^f)$
+        \end{enumerate}
+    \end{RecapBox}
+    \item Assume $a_t,g_t$ folow AR(1) processes with $\rho^a,\rho^g$ and $\epsilon_t^a, \epsilon_t^g$ (fiscal policy shocks)
+    \item Take the EE and withdraw the LHS from both side to have an expression that equals 0. Then add this expression and distribute the $c_t$s.
+    \item Obtaining the output EE : Use the GMC for $c_t,c_t^f$ and substitute it in the previous expression to introduce the output gap instead of the consumption gap. For convenience, lets note $\bar{y}_t \equiv y_t-y_t^f$
+    \begin{equation}
+        \text{Output EE : }\bar{y_t} = -\frac{1}{\gamma} (r_t-r_t^f - E_t[\pi_{t+1}]) + E_t[y_{t+1}-y_{t+1}^f]
+    \end{equation}
+    \item Obtaining a new expression for the flex-price IR : Take the expression for the $r_t^f$, substitute $c_t$s using the GMC, then substitute away $y_t$s using the expression for the flexible output level $y_t^f$ we computed in the previous case (see equation [56])
+    \begin{equation}
+    \begin{aligned}
+        \text{Standard : }r_t^f = \underbrace{-\gamma\frac{1+\psi}{\gamma+\psi}(1-\rho^a)a_t}_{\text{Productivty shock} }+\underbrace{\gamma(1-\Gamma)(1-\rho^g)g_t}_{\text{Fiscal policy shock}}\\
+    \end{aligned}
+    \end{equation}
+    \item We assume away productivity shocks for simplicity (productivity shock term becomes null)
+    \item Apply the undetermined coefficients method to $\pi_t, \bar{y_t}$ (For relation coefficients, I use a notation that differs from the course for simplicity)
+    \begin{equation}
+    \left\{
+    \begin{aligned}
+        \pi_t = \psi_\pi g_t\\
+        \bar{y_t} = \psi_{\bar{y}}g_t
+    \end{aligned}
+    \right.
+    \end{equation}
+    \item See PS6 for the value of $\psi_\pi, \psi_{\bar{y}},\psi_y$ knowing $y_t^f =\Gamma g_t$
+    \item We find the fiscal multiplier $\psi_y$ remains < 1 but is superior to the one under flexible prices as $0<\Gamma<1 $
+
+
+\end{itemize}
+
+\subsection{Dynamics summary}
+
+\subsubsection{Reaction to increase in $g_t$ : flexible case}
+\begin{itemize}
+        \item Household work more and consume less (long-run fiscal multiplier $<1$), dampening the positive feedback loop effect ! 
+        \item Why ? : anticipate increase in taxes due to finance current $g_t$ + consumption smoothing (will save more to maintain C level) \footnote{See "methods" part for the details}
+        \item detailed dynamics : 
+        \begin{equation}
+            \nearrow g_t \Longrightarrow \searrow c_t \Longrightarrow \nearrow MUC \Longrightarrow \nearrow n_t \Longrightarrow \nearrow y_t 
+        \end{equation}
+ \end{itemize}
+
+\subsubsection{Reaction to increase in $g_t$ : Rigidity case}
+\begin{itemize}
+    \item Heightened importance of monetary policy as changes in nominal spending now have an impact on real output. We also have a lower than 1 fiscal multiplier however less so than with flexible prices 
+    \item observations : the multiplier \textbf{decreases} in $\phi_\pi$ and $\phi_y$, it \textbf{increases} in $\lambda$ (probability of price stickyness)
+    \item why ? : 
+    \begin{enumerate}
+        \item impact of price stickiness : higher $\lambda$ implies inflation is less responsive to change in the output gap. So when $g_t$ goes up, firms responds by increasing production rather than raising prices (which they cant always do). Changes in real output are thus stronger than under flexible prices. 
+        \begin{equation}
+            \nearrow \lambda |\nearrow g_t \Longrightarrow \searrow \text{increase in $\pi_t$}|\nearrow \text{increase in $y_t$} 
+        \end{equation}
+        \item impact of $\phi_\pi$ and $\phi_y$ : remember that 
+        \begin{equation}
+            r_t = r_t^n + \phi_\pi\pi_t + \phi_y(y_t-y_t^n)
+        \end{equation}
+        \begin{itemize}
+            \item when $\phi_\pi$ is high the ECB responds aggressively to inflation. Fiscal expansion raises aggregate demand (positive output gap) putting an upward pressure on prices (inflation). This means the monetary response (real interest rate) set by the ECB will be stronger, counteracting the fiscal stimulus by reducing private spending (Ripple effect of fiscal expansion is dampened).
+            \item when $\phi_y$ is high the ECB is very sensitive to the output gap (stronger response). 
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
+
+\section{Zero Lower Bound}
+
+\subsection{Definitions and Concepts}
+
+\begin{itemize}
+    \item Markovian process : current state is sufficient to predict probability to move to another state 
+\end{itemize}
+
+\subsection{Set-up}
+\begin{itemize}
+    \item About $\epsilon^d$ : 
+    \begin{itemize}
+        \item materializes the impact of a negative preference (discount rate) shock which makes people more patient (want to save more) \footnote{to push people to save more you can also take an upward shock in the interest rate spread : borrowing money to fund consumption becomes more expensive relative to lending, which makes saving more attractive }
+        \item null in \textbf{normal state} (SS) and $<0$ in \textbf{crisis state}. It is constant in each period separately. 
+        \item the economy returns to the normal (exits the shock) with probability $1-\mu$ at each period
+    \end{itemize}
+    \item About $g_t$ : government expenditure is discrete and depends on the state, taking either the value $g^H$ when in the crisis state and $g^L$ when in the normal state
+    \item Normal(H) vs crisis state(L) : $\bar{y}^H,\pi^H, r^H,g^H, e_d^H$ are null in the normal state and constant in each state separately (crisis value remains the same as long as the crisis lasts)
+\end{itemize}
+\begin{RecapBox}
+\begin{enumerate}  
+    \item Household objective function:  
+    $E_t\left[ \sum_{s=t}^{\infty} \beta^{s-t} e^{\epsilon_s^d} \left(\frac{C_s^{1-\gamma}-1}{1-\gamma} - \Phi \frac{N_s^{1+\psi}}{1+\psi}\right) \right]$  
+      
+    \item Modified EE (output):  
+    $\bar{y}_t = \frac{-1}{\gamma}\Big(\epsilon_{t+1}^d - \epsilon_t^d + r_t - r_t^n - E_t[\pi_{t+1}]\Big) + E_t[\bar{y}_{t+1}]$  
+      
+    \item New Keynesian Phillips Curve (NKPC):  
+    $\pi_t = \kappa\bar{y}_t + \beta E_t[\pi_{t+1}] $  
+      
+    \item Monetary policy rule:  
+    $r_t = \phi_\pi \pi_t + \phi_y \bar{y}_t \quad (\text{non-LL: } R_t = \Pi_t^{\phi_\pi}\Big(\frac{Y_t}{Y_t^f}\Big)^{\phi_y})$  
+      
+    \item Flexible output:  
+    $y_t^f = \Gamma g_t$  
+      
+    \item Flexible interest rate:  
+    $r_t^f = \gamma (1-\Gamma)\Big( g_t - E_t[g_{t+1}]\Big)$  
+      
+    \item Zero lower bound (ZLB) on the interest rate set by the ECB:  
+    $r_t = \max \Big\{ 0,\, \phi_\pi \pi_t + \phi_y \bar{y}_t \Big\}$  
+\end{enumerate}  
+\end{RecapBox}
+\subsection{A) The crisis state}
+\subsubsection{1) The system}
+\begin{RecapBox}
+    \begin{enumerate}
+        \item inflation : $\pi^L =\frac{\kappa}{1-\beta\mu}\bar{y}^L $
+        \item Flex-price IR : $(r^f)^L=\gamma(1-\Gamma)(1-\mu)g^L$
+        \item Flex-price output : $(y^f)^L=\Gamma g^L$
+        \item EE (output) : $\bar{y}^L = -\frac{1}{\gamma}E_t[-\Delta_0+r^L-(r^f)^L-\mu\pi^L] + \mu\bar{y}^L \Longleftrightarrow \bar{y}^L = \vartheta_r(\Delta_0-r^L)+\vartheta_gg^L$
+        \item Policy rule : $r^L = \max\left\{ 0,(\phi_\pi\frac{\kappa}{1-\beta\mu}+\phi_y)(\vartheta_r(\Delta_0-r^L)+\vartheta_gg^L\right\}$
+    \end{enumerate}
+\end{RecapBox}
+\begin{itemize}
+    \item Inflation : use the NKPC (rewrite expectation)
+    \begin{equation}
+        \pi^L = \kappa\bar{y}^L + \beta\underbrace{(\mu\pi^L+(1-\mu)\pi^H)}_{=E_t[\pi_{t+1}]} \Longleftrightarrow \pi^L = \frac{\kappa}{1-\beta\mu}\bar{y}
+    \end{equation}
+    \item EE (output) : 1) get rid of expectations (including for $\epsilon_{t+1}^d$)\footnote{Note that $\Delta_0$ is the value of the gvt spending shock}, 2) substitute $\pi^L,(r^f)^L=(r^n)^L$, 3) note $\vartheta_r\equiv\frac{(1-\beta\mu)}{\gamma(1-\mu)(1-\beta\mu)-\mu\kappa}$ and $\vartheta_g=\vartheta_r(1-\Gamma)\gamma(1-\mu)$ and reorganize the terms 
+    \begin{equation}
+    \begin{aligned}
+        1)&\text{ }\bar{y}^L = -\frac{1}{\gamma}E_t[-\underbrace{(1-\mu)\epsilon_0^d}_{\equiv\Delta_0}+r^L-(r^f)^L-\mu\pi^L] + \mu\bar{y}^L\\
+        2)&\text{ } \frac{\gamma(1-\mu)(1-\beta\mu)-\mu\kappa}{\gamma(1-\beta\mu)}\bar{y}^L = \frac{1}{\gamma}(\Delta_0-r^L) - (1-\Gamma)(1-\mu)g^L\\
+        3)&\text{ } \bar{y}^L = \vartheta_r(\Delta_0-r^L)+\vartheta_gg^L
+    \end{aligned}
+    \end{equation}
+    \item policy rule: use the expression for the inflation and the EE (to replace $\bar{y}^L$
+\end{itemize}
+
+\subsubsection{2) The dynamics}
+\begin{itemize}
+    \item output gap : We note that $\vartheta_g >(1-\Gamma)>0$, so the output gap depends positively on government spending !
+    \item IR : depends positively on government spending through $\vartheta_r$ as well. 
+\end{itemize}
+
+\subsubsection{3) To bind or not to bind}\footnote{that is the question...}
+\textbf{Finding the conditions for ZBL to be binding}
+\begin{CondBox}
+    \begin{enumerate}
+        \item condition on $\Delta_0$ (holding $g^L$ fixed) : $\Delta_0 < \frac{-\vartheta_g}{\vartheta_r}g^L<0$ and $\epsilon_0^d<\epsilon_{critical}^d(g^L)<0$
+        \item condition on $g^L$ (holding $\Delta_0$ fixed) : $g^L < -\frac{\vartheta_r}{\vartheta_g}\Delta_0$ and $\epsilon_0^d<\epsilon_{critical}^d(\Delta_0)[>0]$
+    \end{enumerate}
+\end{CondBox}
+\begin{itemize}
+    \item Let's find conditions on $\Delta_0$ and on $g^L$ to see when the ZLB binds (ceteris et paribus)
+    \item \textbf{Condition on $\Delta_0$ :} we know we need to have $r^L=0$ when ZLB binds, in other words the RHS of the max function must be inferior to 0 for it to be valid. So we get :
+    \begin{equation}
+        RHS(r^L=0) < 0 \Longleftrightarrow \vartheta_r\Delta_0 + \vartheta_gg^L < 0 \Longleftrightarrow {\Delta_0 < \underbrace{\frac{-\vartheta_g}{\vartheta_r}g^L}_{\equiv\epsilon_{critical}^d}} <0
+    \end{equation}
+    \begin{takebox}
+    \begin{itemize}
+        \item We need a large enough negative shock ($\epsilon_0^d<\epsilon_{critical}^d$) that will increase the desire to save sufficiently for the ZLB to bind 
+        \item Based on the sign of the critical value, if $g^L=0$ any strictly negative shock will suffice for ZLB to bind.\footnote{if the economy has an intercept, $r_t = \alpha + \phi_\pi\pi_t+\phi_y\bar{y}$, this result no longer applies as we now need the critical value to be lower than $\alpha/\vartheta_r$}
+    \end{itemize}
+    \end{takebox}
+    \item \textbf{Condition on $g^L$ :} we follow the same reasoning which yields :
+    \begin{equation}
+        g^L < -\frac{\vartheta_r}{\vartheta_g}\Delta_0
+    \end{equation}
+    \begin{takebox}
+    \begin{itemize}
+        \item since $\Delta_0<0$ we need $g_{critical}^L>0$ so below a certain amount of gvt expenditure increase (positive) in crisis state the ZLB is actually binding
+        \item too great an increase in $g_t$ prevents the ZLB from being binding
+    \end{itemize}
+    \end{takebox}
+\end{itemize}
+\textbf{Finding the fiscal multiplier when the ZLB is binding}
+\begin{itemize}
+    \item Getting the output gap multiplier : we start back from the first inequality we have using the RHS of the policy rule, however this time we write the RHS as a function of the output gap in the crisis state $\bar{y}^L$. 
+    \begin{equation}
+        \bar{y}^L <0 \text{ and }\frac{\delta\bar{y}^L(r^L=0)}{\delta g^L} =\vartheta_g
+    \end{equation}
+    \item $\vartheta_g$ is thus the partial effect (multiplier) on the output gap of a small enough increase in $g^L$ for the ZLB to keep binding 
+    \item Getting the fiscal multiplier : we know $\frac{\delta(y^f)^L}{\delta g^L}=\Gamma$ (trivial), now let's combine this multiplier with the previous one to find the fiscal multiplier :
+    \begin{equation}
+        \text{Fiscal multiplier : } \frac{\delta y^L}{\delta g^L} = \frac{\delta\bar{y}^L}{\delta g^L} + \frac{\delta(y^f)^L}{\delta g^L} = \vartheta_g+\Gamma
+    \end{equation}
+    \begin{takebox}
+    \begin{itemize}
+        \item  $\vartheta_g>1$ so the fiscal multiplier is more than 1 ! 
+        \item comparative statics :
+        \begin{enumerate}
+            \item $\nearrow \mu \Longrightarrow \nearrow multiplier$ (makes sense since we stay longer in a recession and we know the fiscal multiplier is stronger in recession periods)
+            \item $\nearrow \kappa \Longrightarrow \nearrow multiplier$
+            \item $\nearrow (1-\lambda)\Longrightarrow \nearrow multiplier$ \footnote{see below for a detailed explanation on the impact of price flexibility on the multiplier}
+        \end{enumerate}
+        \item Taking the expression for $\pi^L$ and differentiating it in $g^L$ we also find that inflation depends positively on government spending. This helps avoid the deflationary spiral we document in the extension. 
+    \end{itemize}  
+    \end{takebox}
+\end{itemize}
+
+\begin{flexbox}
+    \begin{itemize}
+        \item When prices are more flexible $\kappa$ is larger (the slope of the NKPC is steeper) so, when faced with a negative expenditure shock, the inflation response is stronger. 
+        \item because at the ZLB monetary policy does not work, having a stronger inflation response to changes in output reinforces the power of fiscal policies. (a fiscal stimulus that raises output creates a larger increase in inflation which helps lower the real IR even more)
+        \item 
+    \end{itemize}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Pictures/priceflex.png}
+    \caption{Comparison of inflation response under different levels of price flexibility}
+    \label{fig: Comparison inflation response under varying flex-price}
+\end{figure}
+\end{flexbox}
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Extensions}
@@ -882,9 +1224,8 @@ C) Law of motion for government spending
     \item Capital case ($\alpha \neq 0$) : same dynamics as in the no capital case but the impact on output is stronger. We indeed have both a short term effect (adjust level of labor provided) and a long term effect (adjust capital stock lent to firms) to compensate for drop in disposable income for consumption.     
 \end{itemize}
 
-\subsection{NK model}
+\subsection{NK - Optimal monetary policy}
 
-\subsection{Optimal monetary policy}
 \subsubsection{Inefficient flex price allocation case : time varying $\theta_t$}
 \begin{itemize}
     \item modification : $\theta$ is time-dependent so market power of firms can change from one period to the other and influence how high some firms will be able to price their goods. As the markup is updated at each period, it is impossible to compensate this inefficiency with a targeted subsidy. 
@@ -921,7 +1262,166 @@ C) Law of motion for government spending
     \end{enumerate}
 \end{shortbox}
 
+\subsubsection{Discretionary Monetary Policy}
 
+\textbf{Principle :} The central bank picks the optimal output gap and inflation rate at each period t without committing to anything for periods to come. This ensures the optimal monetary policy is picked at its stage, but this may go against total welfare in some situations due to lack of credible commitment (impossible to commit to keep a low inflation over a predetermined period for instance).\\
+\\\textbf{Set-up : } with $u_t$ ($=c_t^e-c_t^f$), $x_t (=c_t-c_t^e)$ and $\nu_t = \beta E_t[\pi_{t+1}]+u_t$
+    \begin{equation}
+    \begin{aligned}
+        &\min_{x_t,\pi_t} (\pi_t^2+\vartheta x_t^2)\\
+        \text{subject to (NKPC) : }& \pi_t = \kappa x_t+\beta E_t[\pi_{t+1}]+u_t
+    \end{aligned}
+    \end{equation}    
+\\ \textbf{Solving method : }
+\begin{itemize}
+    \item Start from regular loss minimization set-up and note $\nu_t=\beta E_t[\pi_{t+1}]+u_t$
+    \item derive the FOC with respect to $x_t$ and find the expression for the optimal output gap (with $\vartheta=\frac{\kappa}{\theta}$)
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} x_t = -\frac{\kappa\pi_t}{\vartheta} = -\theta\pi_t
+    \end{equation}
+    \end{expectedresultsbox}
+    \item The ECB leans against the wind : when output exceeds its flexible-price level ($x_t>0$) then the ECB will seek to lower inflation and the other way around
+    \item Replace $\nu_t$ by its expression, then substitute the expression for optimal $x_t$ in the NKPC formula. 
+    \item Find a new expression of $\pi_t$ that depends only on $u_{t+k,k\in[0,\infty[}$ through reccursive reasoning on the NKPC.
+   \begin{expectedresultsbox}
+       \begin{equation}
+       \text{\textcolor{blue}{Expected result : }} \pi_t = \frac{1}{1+\kappa\theta}\sum_{k=0}^{\infty}\left( \frac{\beta}{1+\kappa\theta}\right) ^kE_t[u_{t+k}]. 
+    \end{equation}
+    \begin{itemize}
+        \item we notice that the optimal inflation is decreasing in $\theta$ (elasticity of substitution across goods), and in $\kappa$ (sensitivity of inflation to output gap).
+    \end{itemize}
+   \end{expectedresultsbox}
+    \item Use the fact that $u_t$ follows an AR(1) process ($u_{t+k}=\rho^ku_t$) so we can rewrite $\pi_t$ as a function of $u_t$ (NOTE : notice we have a geometric sum)
+    \begin{expectedresultsbox}
+    \begin{equation}
+       \text{\textcolor{blue}{Expected result : }} \pi_t = \frac{u_t}{1+\theta\kappa-\beta\rho}
+    \end{equation}  
+    \end{expectedresultsbox}
+    \item based on this result we can state that $x_t$ and $\pi_t$ also follow an AR(1) process : $E_t[x_{t+1}] = \rho x_t$ and $E_t[\pi_{t+1}] = \rho \pi_t$
+    \item Let's get a new expression for $x_t$ : we take the Euler Equation and rewrite $r_t = r_t +r_t^n-r_t^n$ with $r_t^n = \gamma E_t[c_{t+1}^e-c_t^e]$ (the natural IR at the efficient allocation)\footnote{remember that $x_t = c_t-c_t^e$ and rearrange the $c_t$s ! }
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} x_t = \frac{-1}{\gamma}(r_t-r_t^n-E_t[\pi_{t+1}]) + E_t[x_{t+1}]
+    \end{equation}
+    \end{expectedresultsbox}
+    \item Removing the expectation : Use the expression you got earlier for optimal $x_t$ and the fact that $\pi_t, x_t$ follow AR(1) processes. You get a new expression of $r_t$ as a function of the nominal IR and the inflation rate
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} r_t = r_t^n+(\rho+\theta\gamma(1-\rho))\pi_t
+    \end{equation}
+    \end{expectedresultsbox}
+\end{itemize}
+
+
+\subsubsection{Monetary Policy with Commitment}
+
+\textbf{Principle : } The Central bank can credibly commit to a policy for periods to come. Compared to the discretionary model, it cares about the expected loss over future periods. \\
+\\ \textbf{Set-up : }
+\begin{equation}
+\begin{aligned}
+        \min_{\{\pi_t,x_t\}_{t=0}^\infty} \frac{1}{2}E_0[\sum_{t=0}^\infty\beta^t(\pi_t^2+\alpha x_t^2)]\\
+        \text{Subject to : } \forall t, \pi_t =\nu_t + \kappa x_t 
+\end{aligned}
+\end{equation}\\
+\textbf{Solving for optimal $x_t$}
+\begin{itemize}
+    \item write down the lagrangian and derive the FOC with respect to $\pi_t$ 
+    \item get rid of the expectation term with $\lambda_{t-1}$ and express $\lambda_{t-1}$ as a function of $\lambda_t, \pi_t$
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} \lambda_{t-1} = E_{t-1}[\lambda_t-\pi_t] 
+    \end{equation}
+    \end{expectedresultsbox}
+    \item derive the FOC with respect to $x_t$ and express $x_t$ as a function of $\lambda_t$
+    \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} x_t = \frac{-\kappa}{\alpha_x}\lambda_t \Longleftrightarrow \lambda_t = \frac{-\alpha_x}{\kappa}x_t
+    \end{equation}
+    \end{expectedresultsbox}
+    \item take [83] and substitute the lambdas using [84] to get the final expression for $x_t$
+        \begin{expectedresultsbox}
+    \begin{equation}
+        \text{\textcolor{blue}{Expected result : }} x_t = E_t[x_{t+1}+\frac{\kappa}{\alpha_x}\pi_{t+1}]
+    \end{equation}
+    \end{expectedresultsbox}
+
+\end{itemize}
+
+
+
+
+
+
+
+\subsection{NK - Zero Lower Bound}
+
+\subsubsection{ZLB with preference (discount rate) shock and R$\neq$1}
+\textbf{A) Set up}
+\begin{itemize}
+    \item The economy can enter a crisis state (via a shock $\epsilon_t^d<0$ at period t which maintains itself from one period to the other with probability $\mu$ (otherwise returns to SS)
+    \subitem - preference shock : sudden change in consumers' tastes or utility, which alters their consumption decisions independently of changes in income or relative prices. (affects the intertemporal tradeoff)
+    \item Steady state : $c_t=0, \epsilon_{t-1}^d=0, \pi_t=0$
+    \item Monetary policy rule : 
+    \begin{equation}
+        r_t = max\{-ln(R),\phi_\pi\pi_t\} \text{ with R=$\frac{1}{\beta}$}
+    \end{equation}
+    \item New keynesian equation :
+    \begin{equation}
+        c_t = E_t[-\frac{1}{\gamma}(\epsilon_{t+1}^d-\epsilon_t^d-r_t-\pi_{t+1}+c_{t+1}]
+    \end{equation}
+    \item The standard form of the NKPC remains unchanged ! 
+\end{itemize}
+\textbf{B) General solving method }
+\begin{itemize}
+    \item step 1 : write down the expectation of $\epsilon_t, c_t$ and $\pi_t$ depending on $\mu$ to get rid of expectations in the Philipps curve and the EE
+    \item step 2 : use the rewritten PC and EE to get new expressions for $c_t, \pi_t$ 
+    \item step 3 : guess and verify on $r_t$ for 1)binding vs 2)non binding case and find $c_t,\pi_t$ for each case (detailed below)
+\end{itemize}
+\textbf{C) Understand how $c_t,\pi_t$ depend on the shock using the method of undetermined coefficient}
+\begin{itemize}
+    \item case 1 : lower bound is not binding ($r_t = \phi_\pi \pi_t$)
+    \begin{enumerate}
+        \item Guess : replace guessed $r_t$ in the expression for $c_t, \pi_t$ obtained in step 2, and express the latter as a function of the shock $\epsilon_t^d$
+        \item Verify : give a condition on the shock value $\epsilon$ such that the ZLB is indeed not binding ($\phi_\pi \pi_t > ln(R)$ ). This gives us the minimal value of the shock for which we know our guess that the lower bound is not binding will be verified.
+        \item Find and Interpret how $c_t,\pi_t$ depend on $\epsilon_t^d$ (sign, magnitude)
+        \begin{interpretationbox}
+            \begin{itemize}
+                \item Both $c_t,\pi_t$ depend positively on the shock : 
+                \begin{equation}
+                    \epsilon_t^d <0 \Longrightarrow \searrow c_t,\pi_t
+                \end{equation}
+                \item Mediating role of monetary policy reaction ($\phi_\pi$) : when the negative shock strikes, household face an increased desire to save (consume later). Thus they reduce consumption for the current period. To counteract this, the ECB raises the nominal interest rate($r_t^n$). The stronger the response of the ECB, the stronger the compensating effect of $r_t^n$. $\Longrightarrow$ NO DEFLATIONARY SPIRAL
+                \begin{equation}
+                    \nearrow \phi_pi \Longrightarrow \nearrow \text{drop in }r_t^n  \Longrightarrow \searrow \text{drop in } c_t
+                \end{equation}
+            \end{itemize}
+        \end{interpretationbox} 
+    \end{enumerate}
+    \item case 2 : lower bound is binding ($r_t=-ln(R)$
+    \begin{enumerate}
+        \item Guess : same approach as case 1 
+        \item Verify : this time the condition will be $\phi_\pi \pi_t > ln(R)$ but we proceed in the same way
+        \item interpretation : 
+        \begin{interpretationbox}
+            \begin{itemize}
+                \item As before, households wish to save more, but because the lower bound is binding the ECB cannot further adjust the nominal interest rate. As consumption drops, the output gap widens (less demand at times t, means less production).
+                \item  Because, there is less production, firms push down  salaries as they need to hire fewer workers (the marginal cost of production goes down). This means firms are able to reduce price. However, due to price stickiness (Calvo pricing), not all firms can adjust immediately, creating a gradual adjustment process. Household thus expect even lower prices in the future which further boosts their desire to save. 
+                \item  The real interest rate at time t ($r_t = r_t^n-E_t[\pi_{t+1}])$ increases as $\pi_{t+1}$ becomes more negative further dis-incentivizing consumption now. $\Longrightarrow$ DEFLATIONARY SPIRAL
+            \end{itemize}
+        \begin{equation}
+            \epsilon_t^d < 0 \Longrightarrow \searrow c_t \Longrightarrow \searrow y_t \Longrightarrow \searrow n_t \Longrightarrow \searrow w_t \Longrightarrow \searrow \pi_{t+1} \Longrightarrow \nearrow r_t \Longrightarrow \searrow \searrow c_t
+        \end{equation}
+        \end{interpretationbox}
+    \end{enumerate}
+\end{itemize}
+        \noindent\rule{\textwidth}{0.4pt}
+ {\small  
+ \textbf{Further implications of ZLB being binding :} {\scriptsize 
+        \begin{itemize}
+            \item Odyssean forward guidance : credible commitment by the ECB to raise future inflation can serve to raise current consumption (since $r_t^n$ is constant, the ECB can commit to lower the real interest rate by acting on expected future inflation)
+            \item government spending multiplier can be very large. With the central bank unable to lower rates further, fiscal expansion leads directly to increased aggregate demand. Additionally, if the fiscal intervention modifies expectations (for instance, by signaling future policy changes or affecting inflation expectations), it further boosts demand.
+    \end{itemize}}
 
 \section{Math Appendix}
 \subsection{Usual Taylor Expansions}
@@ -1026,6 +1526,29 @@ $\beta$ is indexed by i and not t+i because between period t and t+i, only i per
 \begin{equation}
     E_t[\sum_{i=t}^\infty\beta^{i-t}X_i]
 \end{equation}
+
+\subsection{Undetermined Coefficient Method}
+\begin{UCMbox}
+\begin{itemize}
+    \item \textbf{Goal} : we wish to investigate how $y_t$ depends on $x_t$
+    \item \textbf{Step 1 : Guess}
+    \begin{enumerate}
+        \item We assume $y_t$ depends on $x_t$ thourhg the following function : $y_t = \psi_xx_t$ with $\psi_x$ unknown
+    \end{enumerate}
+    \item \textbf{Step 2 : Verify}
+    \begin{enumerate}
+        \item Assuming the previous conjecture is true, we use the formulas we know to retrieve an expression of $\psi_x$ based on existing parameters (not variables !). 
+        \item We investigate the sign and magnitude of $\psi_x$ using the expression we just determined and infer how $y_t$ will vary as a function of $x_t$ depending on known parameters. 
+    \end{enumerate}
+\end{itemize}
+\end{UCMbox}
+
+\subsection{AR and VAR processes}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
 
 \end{document}
 
