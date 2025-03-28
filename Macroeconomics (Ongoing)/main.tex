@@ -626,7 +626,6 @@
 \begin{enumerate}
     \item Start from $x_t$ after log linearization
     \item Split the sum with the term where s=t on one side, and all the others on the other side
-    \item Move one of the $\lambda\beta$ outside the sum and outside the expectation
     \item Managing expectations : 
     \begin{itemize}
         \item For the term where s=t you can remove the expectation (it does not depend on future periods)
@@ -651,23 +650,16 @@
     \item Now we use the log-linearized price index equation : $p_t = \lambda p_{t-1} + (1-\lambda)x_t$ and substitute our new expression for $x_t$
     \item We rearrange the term and express $\pi_t = p_t-p_{t-1}$ as a function of $w_t,a_t,p_t$ and $E_t[\pi_{t+1}]$. Detailed steps : 
     \begin{itemize}
-        \item Start from the price index equation and withdraw $p_{t-1}$ on both sides to make $\pi_t$ appear
-        \item Factor out $(1-\lambda)$ and substitute $x_t$ from equation (38) to obtain this : 
-        \begin{expectedresultsbox}
+        \item 1) Start from the price index equation and withdraw $p_{t-1}$ on both sides to make $\pi_t$ appear, 2) then express $x_t$ as a function of $\pi_t,p_{t-1}$
+                \begin{expectedresultsbox}
         \begin{equation}
-            \textcolor{blue}{\textbf{Expected result : }} \frac{(1-\lambda)(1-\lambda\beta)}{\lambda}(w_t-a_t-p_t)+\beta E_t[\pi_{t+1}]
+            \textcolor{blue}{\textbf{Expected result : }} x_{t}=\frac{p_{t}-\lambda p_{t-1}}{1-\lambda} = \frac{\pi_{t}}{1-\lambda} +p_{t-1}
         \end{equation}
         \end{expectedresultsbox}
-        \item Now, take the price index equation we used in the beginning but in $p_{t+1}$ and rewrite $x_{t+1}$ as function of $p_t, p_{t+1}$
+        \item 1) Substitute $x_t, x_{t+1}$ from equation (41) using result (42), and 2) withdraw $p_t$ from both sides to get $\frac{\lambda}{1-\lambda} \pi_t$ on the LHS and obtain this : 
         \begin{expectedresultsbox}
         \begin{equation}
-            \textcolor{blue}{\textbf{Expected result : }} x_{t+1}=\frac{p_{t+1}-\lambda p_t}{1-\lambda} = \frac{\pi_{t+1}}{1-\lambda} +p_t
-        \end{equation}
-        \end{expectedresultsbox}
-        \item We take the expectation of this new expression of $x_{t+1}$ and substitute it in equation (39) to get the Phillips curve ! 
-        \begin{expectedresultsbox}
-        \begin{equation}
-            \textcolor{blue}{\textbf{Expected result : }} \pi_t = \frac{(1-\lambda)(1-\lambda\beta)}{\lambda}(w_t-a_t-p_t) + \beta E_t[\pi_{t+1}]
+            \textcolor{blue}{\textbf{Expected result : }} \pi_t = \frac{(1-\lambda)(1-\lambda\beta)}{\lambda}(w_t-a_t-p_t)+\beta E_t[\pi_{t+1}]
         \end{equation}
         \end{expectedresultsbox}
     \end{itemize}
@@ -675,26 +667,26 @@
 
 \textbf{D) Phillips curve (output gap version)}
 \begin{enumerate}
-    \item substitute the log-lin labour demand function into the log-lin labour market clearing condition to get a new expression of n (you also need to use the log lin price index to get rid of $p_t$)
+    \item Substitute the log-lin labour demand function into the log-lin labour market clearing condition to get a new expression of $n_t$ (you also need to use the first equality in the log-lin price index to get rid of $p_t$)
     \begin{expectedresultsbox}
     \begin{equation}
         n_t=c_t-a_t
     \end{equation}
     \end{expectedresultsbox}
-    \item combine (2) with the log lin labour supply equation to get : 
+    \item Combine (44) with the log-lin labour supply equation to get : 
     \begin{expectedresultsbox}
     \begin{equation}
         (\psi + \gamma)c_t=w_t-p_t+\psi a_t
     \end{equation}
     \end{expectedresultsbox}
-    \item start from (3) and rewrite the equality for $c_t^f$ ($w_t$ and $p_t$ take an f too). Then simplify the right hand side to express it as a function of $a_t$ (remember that $p_t^f = w_t^f-a_t$ from the log linearized system)
+    \item Start from (45) and rewrite the equality for $c_t^f$ ($w_t$ and $p_t$ take an f too). Then simplify the right hand side to express it as a function of $a_t$ (remember that $p_t^f = w_t^f-a_t$ from the log linearized system)
     \begin{expectedresultsbox}
     \begin{equation}
         (\psi+\gamma)c_t^f = (\psi + 1)a_t \Longleftrightarrow c_t^f = \frac{\psi+1}{\psi + \gamma}a_t
     \end{equation}
     \end{expectedresultsbox}
-    \item we can now safely set $\xi$ such that : $(w_t-a_t-p_t) = \xi (c_t-c_t^f)$
-    \item we substitute this in our previous expression for the phillips curve (see C) and get this new equation : 
+    \item Using (45) and (46), we can now safely set $\xi$ such that : $(w_t-a_t-p_t) = \xi (c_t-c_t^f)$ ($\xi \equiv \frac{1}{\psi+\gamma}$
+    \item We substitute this in our previous expression for the phillips curve (see C) and get this new equation ($\kappa\equiv \frac{(1-\lambda)(1-\lambda\beta)}{\lambda\xi}$) : 
     \begin{expectedresultsbox}
     \begin{equation}
         \pi_t = \kappa(c_t-c_t^f)+\beta E_t[\pi_{t+1}]
@@ -1070,7 +1062,7 @@ Flexible price case}
         \item because at the ZLB monetary policy does not work, having a stronger inflation response to changes in output reinforces the power of fiscal policies. (a fiscal stimulus that raises output creates a larger increase in inflation which helps lower the real IR even more)
         \item 
     \end{itemize}
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Pictures/priceflex.png}
     \caption{Comparison of inflation response under different levels of price flexibility}
@@ -1383,7 +1375,7 @@ C) Law of motion for government spending
     \item case 1 : lower bound is not binding ($r_t = \phi_\pi \pi_t$)
     \begin{enumerate}
         \item Guess : replace guessed $r_t$ in the expression for $c_t, \pi_t$ obtained in step 2, and express the latter as a function of the shock $\epsilon_t^d$
-        \item Verify : give a condition on the shock value $\epsilon$ such that the ZLB is indeed not binding ($\phi_\pi \pi_t > ln(R)$ ). This gives us the minimal value of the shock for which we know our guess that the lower bound is not binding will be verified.
+        \item Verify : give a condition on the shock value $\epsilon$ such that the ZLB is indeed not binding ($\phi_\pi \pi_t > -ln(R)$ ). This gives us the maximal value of the shock ($0>\epsilon > \underline{\epsilon}$) for which we know our guess that the lower bound is not binding will be verified.
         \item Find and Interpret how $c_t,\pi_t$ depend on $\epsilon_t^d$ (sign, magnitude)
         \begin{interpretationbox}
             \begin{itemize}
@@ -1391,9 +1383,9 @@ C) Law of motion for government spending
                 \begin{equation}
                     \epsilon_t^d <0 \Longrightarrow \searrow c_t,\pi_t
                 \end{equation}
-                \item Mediating role of monetary policy reaction ($\phi_\pi$) : when the negative shock strikes, household face an increased desire to save (consume later). Thus they reduce consumption for the current period. To counteract this, the ECB raises the nominal interest rate($r_t^n$). The stronger the response of the ECB, the stronger the compensating effect of $r_t^n$. $\Longrightarrow$ NO DEFLATIONARY SPIRAL
+                \item Mediating role of monetary policy reaction ($\phi_\pi$) : when the negative shock strikes, household face an increased desire to save (consume later). Thus they reduce consumption for the current period. To counteract this, the ECB lowers the nominal interest rate($r_t$). The stronger the response of the ECB, the stronger the compensating effect of $r_t$. $\Longrightarrow$ NO DEFLATIONARY SPIRAL
                 \begin{equation}
-                    \nearrow \phi_pi \Longrightarrow \nearrow \text{drop in }r_t^n  \Longrightarrow \searrow \text{drop in } c_t
+                    \nearrow \phi_\pi \Longrightarrow \nearrow \text{drop in }r_t  \Longrightarrow \searrow \text{drop in } c_t
                 \end{equation}
             \end{itemize}
         \end{interpretationbox} 
@@ -1401,13 +1393,13 @@ C) Law of motion for government spending
     \item case 2 : lower bound is binding ($r_t=-ln(R)$
     \begin{enumerate}
         \item Guess : same approach as case 1 
-        \item Verify : this time the condition will be $\phi_\pi \pi_t > ln(R)$ but we proceed in the same way
-        \item interpretation : 
+        \item Verify : this time the condition will be $\phi_\pi \pi_t < -ln(R)$ but we proceed in the same way
+        \item interpretation : the shock has to be great enough for the ZLB to be binding. (superior to $\epsilon<\bar{\epsilon}<0$)
         \begin{interpretationbox}
             \begin{itemize}
-                \item As before, households wish to save more, but because the lower bound is binding the ECB cannot further adjust the nominal interest rate. As consumption drops, the output gap widens (less demand at times t, means less production).
+                \item As before, households wish to save more, but because the lower bound is binding the ECB cannot further adjust (lower) the nominal interest rate. As consumption drops, the output gap widens (less demand at times t, means less production).
                 \item  Because, there is less production, firms push down  salaries as they need to hire fewer workers (the marginal cost of production goes down). This means firms are able to reduce price. However, due to price stickiness (Calvo pricing), not all firms can adjust immediately, creating a gradual adjustment process. Household thus expect even lower prices in the future which further boosts their desire to save. 
-                \item  The real interest rate at time t ($r_t = r_t^n-E_t[\pi_{t+1}])$ increases as $\pi_{t+1}$ becomes more negative further dis-incentivizing consumption now. $\Longrightarrow$ DEFLATIONARY SPIRAL
+                \item  The real interest rate at time t ($R_t = r_t-E_t[\pi_{t+1}])$ increases as $\pi_{t+1}$ becomes more negative further dis-incentivizing consumption now. $\Longrightarrow$ DEFLATIONARY SPIRAL
             \end{itemize}
         \begin{equation}
             \epsilon_t^d < 0 \Longrightarrow \searrow c_t \Longrightarrow \searrow y_t \Longrightarrow \searrow n_t \Longrightarrow \searrow w_t \Longrightarrow \searrow \pi_{t+1} \Longrightarrow \nearrow r_t \Longrightarrow \searrow \searrow c_t
