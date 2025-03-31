@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+\usepackage{tabularx}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[version=4]{mhchem}
@@ -17,9 +18,11 @@
 \usepackage{fancyhdr}
 \usepackage{footmisc}
 \usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{tikz} 
+\usepackage{array}
 \usepackage{caption}  
 \usetikzlibrary{shapes.geometric, arrows, positioning}  
 \DeclareMathOperator*{\argmax}{arg\,max}
@@ -509,6 +512,7 @@
         \right.
         \end{equation}
     \end{expectedresultsbox}
+    \item An alternative method : 1) substitute $C_t(i)$ by its expression as a function of $N_t(i)$ and directly substitute $C_t$ in the utility function. 2) Then differentiate with respect to a given $N_t(j)$ and write : $U_{C_t}\frac{\delta C_t}{\delta N_t(j)} + U_{N_t}\underbrace{\frac{\delta N_t}{\delta N_t(j)}}_{=1}= 0$. 3)Notice goods enter the utiility function symmetrically so $N_t = N_t(i)$ and $C_t=C_t(i)$. 4) Use this to find $\frac{\delta C_t}{\delta N_t(j)}=A_t$ and you get the wanted FOC.
 \end{enumerate}
 
 \subsubsection{Steady state}
@@ -685,8 +689,8 @@
         (\psi+\gamma)c_t^f = (\psi + 1)a_t \Longleftrightarrow c_t^f = \frac{\psi+1}{\psi + \gamma}a_t
     \end{equation}
     \end{expectedresultsbox}
-    \item Using (45) and (46), we can now safely set $\xi$ such that : $(w_t-a_t-p_t) = \xi (c_t-c_t^f)$ ($\xi \equiv \frac{1}{\psi+\gamma}$
-    \item We substitute this in our previous expression for the phillips curve (see C) and get this new equation ($\kappa\equiv \frac{(1-\lambda)(1-\lambda\beta)}{\lambda\xi}$) : 
+    \item Using (45) and (46), we can now safely set $\xi$ such that : $(w_t-a_t-p_t) = \xi (c_t-c_t^f)$ ($\xi \equiv \psi+\gamma$)
+    \item We substitute this in our previous expression for the phillips curve (see C) and get this new equation ($\kappa\equiv \frac{(1-\lambda)(1-\lambda\beta)}{\lambda}\xi$) : 
     \begin{expectedresultsbox}
     \begin{equation}
         \pi_t = \kappa(c_t-c_t^f)+\beta E_t[\pi_{t+1}]
@@ -727,6 +731,21 @@
         \item $r_t=r_t^n+\phi_{\pi}\pi_t+\phi_c(c_t-c_t^f)$
         \item $\phi_{\pi}+\frac{(1-\beta)\phi_c}{\kappa} > 1$
     \end{enumerate}
+    \begin{intuitionbox}
+    \begin{enumerate}
+    \item \textbf{Taylor Principle Extension}: The classic requirement ($\phi_{\pi} > 1$) is generalized to account for output gap stabilization.
+    
+    \item \textbf{Role of $\kappa$}:
+    \begin{itemize}
+        \item Steeper Phillips curve ($\uparrow \kappa$) $\Rightarrow$ Smaller $\phi_c$ needed
+        \item Flatter Phillips curve ($\downarrow \kappa$) $\Rightarrow$ Larger $\phi_c$ required
+    \end{itemize}
+    
+    \item \textbf{Forward-Looking Stabilization}: The term $\frac{(1-\beta)}{\kappa}$ reflects how output gaps affect inflation \textit{over time} via the Phillips curve.
+    
+    \item \textbf{Indeterminacy Avoidance}: A weaker response ($\leq 1$) permits self-fulfilling expectations, while a stronger response ($>1$) anchors expectations to the target equilibrium.
+\end{enumerate}
+    \end{intuitionbox}
 \end{itemize}
 
 \subsubsection{Inefficient flex-price allocation : The Quadratic loss function}
@@ -863,12 +882,12 @@ Flexible price case}
         \end{enumerate}
     \end{RecapBox}
     \item Assume $a_t,g_t$ folow AR(1) processes with $\rho^a,\rho^g$ and $\epsilon_t^a, \epsilon_t^g$ (fiscal policy shocks)
-    \item Take the EE and withdraw the LHS from both side to have an expression that equals 0. Then add this expression and distribute the $c_t$s.
+    \item Take the EE and rewrite $r_t = r_t^f-r_t^f+r_t$. Then substitute one of the $r_t^f$ by its expression to recover the $c_t-c_t^f$ version of the EE. 
     \item Obtaining the output EE : Use the GMC for $c_t,c_t^f$ and substitute it in the previous expression to introduce the output gap instead of the consumption gap. For convenience, lets note $\bar{y}_t \equiv y_t-y_t^f$
     \begin{equation}
         \text{Output EE : }\bar{y_t} = -\frac{1}{\gamma} (r_t-r_t^f - E_t[\pi_{t+1}]) + E_t[y_{t+1}-y_{t+1}^f]
     \end{equation}
-    \item Obtaining a new expression for the flex-price IR : Take the expression for the $r_t^f$, substitute $c_t$s using the GMC, then substitute away $y_t$s using the expression for the flexible output level $y_t^f$ we computed in the previous case (see equation [56])
+    \item Obtaining a new expression for the flex-price IR : Take the expression for the $r_t^f$, substitute $c_t$s using the GMC, then substitute away $y_t$s using the expression for the flexible output level $y_t^f$ we computed in the previous case (see equation [55])
     \begin{equation}
     \begin{aligned}
         \text{Standard : }r_t^f = \underbrace{-\gamma\frac{1+\psi}{\gamma+\psi}(1-\rho^a)a_t}_{\text{Productivty shock} }+\underbrace{\gamma(1-\Gamma)(1-\rho^g)g_t}_{\text{Fiscal policy shock}}\\
@@ -1267,13 +1286,13 @@ C) Law of motion for government spending
 \\ \textbf{Solving method : }
 \begin{itemize}
     \item Start from regular loss minimization set-up and note $\nu_t=\beta E_t[\pi_{t+1}]+u_t$
-    \item derive the FOC with respect to $x_t$ and find the expression for the optimal output gap (with $\vartheta=\frac{\kappa}{\theta}$)
+    \item derive the FOC with respect to $x_t$ and find the expression for the optimal output gap(with $\vartheta=\frac{\kappa}{\theta}$)
     \begin{expectedresultsbox}
     \begin{equation}
         \text{\textcolor{blue}{Expected result : }} x_t = -\frac{\kappa\pi_t}{\vartheta} = -\theta\pi_t
     \end{equation}
     \end{expectedresultsbox}
-    \item The ECB leans against the wind : when output exceeds its flexible-price level ($x_t>0$) then the ECB will seek to lower inflation and the other way around
+    \item The ECB leans against the wind : when output exceeds its flexible-price level ($y_t>y_t^f$) then the ECB will seek to lower inflation and the other way around
     \item Replace $\nu_t$ by its expression, then substitute the expression for optimal $x_t$ in the NKPC formula. 
     \item Find a new expression of $\pi_t$ that depends only on $u_{t+k,k\in[0,\infty[}$ through reccursive reasoning on the NKPC.
    \begin{expectedresultsbox}
@@ -1415,7 +1434,7 @@ C) Law of motion for government spending
             \item government spending multiplier can be very large. With the central bank unable to lower rates further, fiscal expansion leads directly to increased aggregate demand. Additionally, if the fiscal intervention modifies expectations (for instance, by signaling future policy changes or affecting inflation expectations), it further boosts demand.
     \end{itemize}}
 
-\section{Math Appendix}
+\section{Math \& Econ Appendix}
 \subsection{Usual Taylor Expansions}
 \begin{tabular}{c|c|c}
 \toprule
@@ -1535,12 +1554,61 @@ $\beta$ is indexed by i and not t+i because between period t and t+i, only i per
 \end{itemize}
 \end{UCMbox}
 
-\subsection{AR and VAR processes}
-\begin{itemize}
-    \item 
-\end{itemize}
+\subsection{Shock Impulse Response Table}
 
+\begin{table}[H]
+\centering
+\caption{Macroeconomic Responses to Shocks in the New Keynesian Model}
+\label{table:shocks}
+\footnotesize % Smaller font size
+\setlength{\tabcolsep}{4pt} % Reduce column padding
+\renewcommand{\arraystretch}{1.2} % Increase row spacing slightly
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm}cccccl>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Shock Type} & \(Y\) & \(\pi\) & \(C\) & \(N\) & \(W\) & \textbf{Key Params} & \textbf{Mechanism} \\
+\midrule
+Preference Shock & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) 
+& \(\beta, \gamma\) 
+& Higher patience (\(\beta \uparrow\)) shifts consumption to future. Lower risk aversion (\(\gamma \downarrow\)) weakly offsets. Reduced demand lowers labor and wages. \\ 
 
+Price Markup Shock & \(\downarrow\) & \(\uparrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) 
+& \(\theta, \lambda\) 
+& Firms exploit market power (\(\theta \downarrow\)) to raise prices. Real wages (\(W/P\)) fall, reducing demand. Sticky prices (\(\lambda \uparrow\)) delay adjustments. \\ 
+
+Mon. Policy Shock & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) 
+& \(\phi_\pi, \phi_y\) 
+& Rate cut lowers real rates (\(r \downarrow\)), stimulating spending. Firms expand hiring (\(N \uparrow\)), pushing up wages. \\ 
+
+Productivity Shock & \(\uparrow\) & \(\downarrow\) & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) 
+& \(A, \psi\) 
+& Higher productivity (\(A \uparrow\)) lowers marginal costs. Output and real wages rise. Labor supply response depends on \(\psi\). \\ 
+
+Labor Supply Shock & \(\uparrow\) & \(\downarrow\) & \(\leftrightarrow\) & \(\uparrow\) & \(\downarrow\) 
+& \(\psi, \varphi\) 
+& Increased labor supply (\(N \uparrow\)) lowers wages (\(W \downarrow\)). Consumption stable due to offsetting income/wealth effects. \\ 
+
+Gov. Spending Shock & \(\uparrow\) & \(\uparrow\) & \(\downarrow\) & \(\uparrow\) & \(\uparrow\) 
+& \(\lambda, \Gamma\) 
+& Crowding-out reduces \(C\). Higher \(G\) raises labor demand. Sticky prices (\(\lambda \uparrow\)) amplify multiplier. \\ 
+
+Cost-Push Shock & \(\downarrow\) & \(\uparrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) 
+& \(\kappa\) 
+& Input cost shock raises prices (\(\pi \uparrow\)) and reduces output. Real wages (\(W/P \downarrow\)) and consumption fall. \\ 
+
+Demand Shock & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) & \(\uparrow\) 
+& \(\gamma\) 
+& Optimism increases current consumption (\(C \uparrow\)). Firms hire more workers (\(N \uparrow\)), raising wages. \\ 
+
+Investment Shock & \(\uparrow\) & \(\uparrow\) & \(\leftrightarrow\) & \(\uparrow\) & \(\uparrow\) 
+& Inv. costs 
+& Improved capital efficiency boosts investment. Labor demand rises if capital-labor complementarity exists. \\ 
+
+Risk Premium Shock & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) & \(\downarrow\) 
+& Fin. frictions 
+& Higher spreads increase effective borrowing costs (\(r \uparrow\)). Demand collapses at ZLB, reducing \(C\), \(N\), and \(W\). \\ 
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \end{document}
 
