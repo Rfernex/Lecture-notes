@@ -1,0 +1,39 @@
+% visuals
+
+% expected result blue boxes
+\usepackage[most]{tcolorbox}
+\newtcolorbox{expectedresultsbox}{colback=blue!2!white, colframe=blue!75!black, arc=4mm, boxrule=0.5mm}
+
+% intro black box
+\newtcolorbox{GTbox}[1][]{%
+  enhanced,
+  colback=white,
+  colframe=blue,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={\large Solving with Grim-trigger},
+  center title,
+  #1
+}
+
+\newtcolorbox{Proof}[1][]{%
+  enhanced,
+  colback=white,
+  colframe=blue,
+  arc=4mm,                % rounded corners
+  fonttitle=\bfseries,
+  title={\large Proof},
+  center title,
+  #1
+}
+
+\newtcolorbox{simplebox}[1]{  
+  title=#1,               % Title from argument  
+  colback=blue!10,        % Light blue background  
+  colframe=blue!70!black, % Dark blue frame  
+  fonttitle=\bfseries,    % Bold title  
+  boxrule=0pt,            % No frame around the text area  
+  toprule=2mm,            % Thick rule at the top (blue band)  
+  enhanced,               % Required for shadow  
+  drop shadow             % Simple shadow with default settings  
+}  
